@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище BD_GasStationModelContainer" CdmEntityContainer="BD_GasStationEntities">
+    <EntitySetMapping Name="fuel">
+      <EntityTypeMapping TypeName="BD_GasStationModel.fuel">
+        <MappingFragment StoreEntitySet="fuel">
+          <ScalarProperty Name="fuel_id" ColumnName="fuel_id" />
+          <ScalarProperty Name="fuel_name" ColumnName="fuel_name" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="sup_id" ColumnName="sup_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="remains">
+      <EntityTypeMapping TypeName="BD_GasStationModel.remains">
+        <MappingFragment StoreEntitySet="remains">
+          <ScalarProperty Name="remain_id" ColumnName="remain_id" />
+          <ScalarProperty Name="fuel_id" ColumnName="fuel_id" />
+          <ScalarProperty Name="remain_date" ColumnName="remain_date" />
+          <ScalarProperty Name="vol_init" ColumnName="vol_init" />
+          <ScalarProperty Name="vol_sold" ColumnName="vol_sold" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="supplierdir">
+      <EntityTypeMapping TypeName="BD_GasStationModel.supplierdir">
+        <MappingFragment StoreEntitySet="supplierdir">
+          <ScalarProperty Name="sup_id" ColumnName="sup_id" />
+          <ScalarProperty Name="sup_name" ColumnName="sup_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

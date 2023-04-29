@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище BD_GasStationModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="fuel">
+    <Key>
+      <PropertyRef Name="fuel_id" />
+    </Key>
+    <Property Name="fuel_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fuel_name" Type="char" MaxLength="50" />
+    <Property Name="price" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="sup_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="remains">
+    <Key>
+      <PropertyRef Name="remain_id" />
+    </Key>
+    <Property Name="remain_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fuel_id" Type="int" Nullable="false" />
+    <Property Name="remain_date" Type="date" />
+    <Property Name="vol_init" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="vol_sold" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="supplierdir">
+    <Key>
+      <PropertyRef Name="sup_id" />
+    </Key>
+    <Property Name="sup_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sup_name" Type="char" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__fuel__sup_id__398D8EEE">
+    <End Role="supplierdir" Type="Self.supplierdir" Multiplicity="1" />
+    <End Role="fuel" Type="Self.fuel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="supplierdir">
+        <PropertyRef Name="sup_id" />
+      </Principal>
+      <Dependent Role="fuel">
+        <PropertyRef Name="sup_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__remains__fuel_id__3C69FB99">
+    <End Role="fuel" Type="Self.fuel" Multiplicity="1" />
+    <End Role="remains" Type="Self.remains" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="fuel">
+        <PropertyRef Name="fuel_id" />
+      </Principal>
+      <Dependent Role="remains">
+        <PropertyRef Name="fuel_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище BD_GasStationModelContainer">
+    <EntitySet Name="fuel" EntityType="Self.fuel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="remains" EntityType="Self.remains" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="supplierdir" EntityType="Self.supplierdir" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__fuel__sup_id__398D8EEE" Association="Self.FK__fuel__sup_id__398D8EEE">
+      <End Role="supplierdir" EntitySet="supplierdir" />
+      <End Role="fuel" EntitySet="fuel" />
+    </AssociationSet>
+    <AssociationSet Name="FK__remains__fuel_id__3C69FB99" Association="Self.FK__remains__fuel_id__3C69FB99">
+      <End Role="fuel" EntitySet="fuel" />
+      <End Role="remains" EntitySet="remains" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
