@@ -1,6 +1,5 @@
-/*USE master
-DROP DATABASE BD_GasStation*/
-
+--USE master
+--DROP DATABASE BD_GasStation
 --CREATE DATABASE BD_GasStation
 
 USE BD_GasStation
