@@ -86,7 +86,8 @@ namespace TrainingPractice_03.Forms
         {
             RefreshDgv();
         }
-
+        //удаление по ТЗ не нужно
+        /*
         private void del_btn_Click(object sender, EventArgs e)
         {
             int index = dataGridView1.CurrentCell.RowIndex;
@@ -103,7 +104,7 @@ namespace TrainingPractice_03.Forms
                 command.ExecuteNonQuery();
                 _dataBase.closeConnection();
             }
-        }
+        }*/
 
         private void edit_btn_Click(object sender, EventArgs e)
         {

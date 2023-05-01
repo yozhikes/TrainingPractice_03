@@ -39,7 +39,6 @@
             this.nameTxt = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.backBtn = new System.Windows.Forms.Button();
-            this.delBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierdirBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bD_GasStationDataSet)).BeginInit();
@@ -95,7 +94,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(20, 338);
+            this.label2.Location = new System.Drawing.Point(20, 320);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(105, 24);
             this.label2.TabIndex = 7;
@@ -103,7 +102,7 @@
             // 
             // nameTxt
             // 
-            this.nameTxt.Location = new System.Drawing.Point(236, 342);
+            this.nameTxt.Location = new System.Drawing.Point(236, 324);
             this.nameTxt.Name = "nameTxt";
             this.nameTxt.Size = new System.Drawing.Size(227, 20);
             this.nameTxt.TabIndex = 6;
@@ -130,23 +129,11 @@
             this.backBtn.UseVisualStyleBackColor = true;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
-            // delBtn
-            // 
-            this.delBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.delBtn.Location = new System.Drawing.Point(496, 300);
-            this.delBtn.Name = "delBtn";
-            this.delBtn.Size = new System.Drawing.Size(216, 62);
-            this.delBtn.TabIndex = 10;
-            this.delBtn.Text = "Удалить";
-            this.delBtn.UseVisualStyleBackColor = true;
-            this.delBtn.Click += new System.EventHandler(this.del_btn_Click);
-            // 
             // GuideForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(724, 389);
-            this.Controls.Add(this.delBtn);
+            this.ClientSize = new System.Drawing.Size(724, 371);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
@@ -178,6 +165,5 @@
         private System.Windows.Forms.TextBox nameTxt;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button backBtn;
-        private System.Windows.Forms.Button delBtn;
     }
 }
