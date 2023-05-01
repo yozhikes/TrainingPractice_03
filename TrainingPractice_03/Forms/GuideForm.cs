@@ -87,8 +87,7 @@ namespace TrainingPractice_03.Forms
             RefreshDgv();
         }
 
-        //функция для удаления поставщика убрана, так как не было в ТЗ такой функции
-        /*private void del_btn_Click(object sender, EventArgs e)
+        private void del_btn_Click(object sender, EventArgs e)
         {
             int index = dataGridView1.CurrentCell.RowIndex;
             dataGridView1.Rows[index].Visible=false;
@@ -96,12 +95,15 @@ namespace TrainingPractice_03.Forms
             {
                 _dataBase.openConnection();
                 var id = Convert.ToInt32(dataGridView1.Rows[index].Cells[0].Value);
-                var deleteQuery = $"DELETE FROM supplierdir WHERE sup_id = {id}";
+                var deleteQuery = $"DELETE FROM fuel WHERE sup_id = {id}";
                 var command = new SqlCommand(deleteQuery, _dataBase.GetConnection());
+                command.ExecuteNonQuery();
+                deleteQuery = $"DELETE FROM supplierdir WHERE sup_id = {id}";
+                command = new SqlCommand(deleteQuery, _dataBase.GetConnection());
                 command.ExecuteNonQuery();
                 _dataBase.closeConnection();
             }
-        }*/
+        }
 
         private void edit_btn_Click(object sender, EventArgs e)
         {
@@ -121,6 +123,11 @@ namespace TrainingPractice_03.Forms
             {
                 MessageBox.Show("Введите название поставщика!");
             }
+        }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

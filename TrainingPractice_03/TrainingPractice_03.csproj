@@ -39,6 +39,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -66,12 +69,6 @@
       <DependentUpon>BD_GasStationFuelData.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataBase.cs" />
-    <Compile Include="Forms\ContactsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\ContactsForm.Designer.cs">
-      <DependentUpon>ContactsForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\FuelForm.cs">
       <SubType>Form</SubType>
     </Compile>

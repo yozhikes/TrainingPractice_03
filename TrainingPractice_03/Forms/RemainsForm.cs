@@ -17,11 +17,15 @@ namespace TrainingPractice_03.Forms
     public partial class RemainsForm : Form
     {
         DataBase _dataBase = new DataBase();
-        double d;
+        decimal d;
+        DateTime c;
         IFormatProvider formatter = new NumberFormatInfo { NumberDecimalSeparator = "." };
         public RemainsForm()
         {
             InitializeComponent();
+            CultureInfo customCulture = (CultureInfo)System.Threading.Thread.CurrentThread.CurrentCulture.Clone();
+            customCulture.NumberFormat.NumberDecimalSeparator = ".";
+            System.Threading.Thread.CurrentThread.CurrentCulture = customCulture;
         }
         
 
@@ -77,12 +81,13 @@ namespace TrainingPractice_03.Forms
         private void add_btn_Click(object sender, EventArgs e)
         {
             _dataBase.openConnection();
-            var try1= double.TryParse(startVolumeTxt.Text, NumberStyles.Any, CultureInfo.InvariantCulture, out d);
-            var try2 = double.TryParse(volumeSaleTxt.Text, NumberStyles.Any, CultureInfo.InvariantCulture, out d);
-            if (dateTxt.Text != string.Empty && try1 && try2)
+            var try1= decimal.TryParse(startVolumeTxt.Text, out d);
+            var try2 = decimal.TryParse(volumeSaleTxt.Text,out d);
+            if (dateTxt.Text != string.Empty && try1&&try2&&DateTime.TryParse(dateTxt.Text,out c))
             {
                 var addQuery = $"INSERT INTO remains(fuel_id,remain_date,vol_init,vol_sold)" +
-                    $" VALUES ({id_fuelTxt.Text},'{dateTxt.Text}',{decimal.Parse(startVolumeTxt.Text)}" +
+                    $" VALUES ({id_fuelTxt.Text},'{dateTxt.Text}'," +
+                    $"{decimal.Parse(startVolumeTxt.Text)}" +
                     $",{decimal.Parse(volumeSaleTxt.Text)})";
                 var command = new SqlCommand(addQuery, _dataBase.GetConnection());
                 command.ExecuteNonQuery();
@@ -137,6 +142,62 @@ namespace TrainingPractice_03.Forms
                 command.ExecuteNonQuery();
                 _dataBase.closeConnection();
             }
+        }
+
+        private void expBtn_Click(object sender, EventArgs e)
+        {
+            Microsoft.Office.Interop.Excel.Application ExcelApp = new Microsoft.Office.Interop.Excel.Application();
+            Microsoft.Office.Interop.Excel.Workbook ExcelWorkBook;
+            Microsoft.Office.Interop.Excel.Worksheet ExcelWorkSheet;
+            //Книга.
+            ExcelWorkBook = ExcelApp.Workbooks.Add(System.Reflection.Missing.Value);
+            //Таблица.
+            ExcelWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(1);
+            ExcelWorkSheet.Columns.ColumnWidth = 27;
+            ExcelApp.Cells[1, 1] = "Код учёта";
+            ExcelApp.Cells[1, 2] = "Код вида топлива";
+            ExcelApp.Cells[1, 3] = "Дата";
+            ExcelApp.Cells[1, 4] = "Объём на начало дня (л)";
+            ExcelApp.Cells[1, 5] = "Объём продажи (л)";
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                for (int j = 0; j < dataGridView1.ColumnCount; j++)
+                {
+                    ExcelApp.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value;
+                }
+            }
+            //Вызываем нашу созданную эксельку.
+            ExcelApp.Visible = true;
+            ExcelApp.UserControl = true;
+        }
+
+        private void sortBtn_Click(object sender, EventArgs e)
+        {
+            if (rb1.Checked)
+            {
+                dataGridView1.Sort(dataGridView1.Columns[0], ListSortDirection.Ascending);
+            }
+            else if (rb2.Checked)
+            {
+                dataGridView1.Sort(dataGridView1.Columns[1], ListSortDirection.Ascending);
+            }
+            else if (rb3.Checked)
+            {
+                dataGridView1.Sort(dataGridView1.Columns[2], ListSortDirection.Ascending);
+            }
+            else if (rb4.Checked)
+            {
+                dataGridView1.Sort(dataGridView1.Columns[3], ListSortDirection.Ascending);
+            }
+            else if (rb5.Checked)
+            {
+                dataGridView1.Sort(dataGridView1.Columns[4], ListSortDirection.Ascending);
+            }
+        }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

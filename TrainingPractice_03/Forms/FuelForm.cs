@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,10 +16,13 @@ namespace TrainingPractice_03.Forms
     public partial class FuelForm : Form
     {
         DataBase _dataBase = new DataBase();
-        int d;
+        decimal d;
         public FuelForm()
         {
             InitializeComponent();
+            CultureInfo customCulture = (CultureInfo)System.Threading.Thread.CurrentThread.CurrentCulture.Clone();
+            customCulture.NumberFormat.NumberDecimalSeparator = ".";
+            System.Threading.Thread.CurrentThread.CurrentCulture = customCulture;
         }
 
         private void updBtn_Click(object sender, EventArgs e)
@@ -29,7 +33,7 @@ namespace TrainingPractice_03.Forms
         private void add_btn_Click(object sender, EventArgs e)
         {
             _dataBase.openConnection();
-            if (nameTxt.Text != string.Empty&&int.TryParse(priceTxt.Text, out d))
+            if (nameTxt.Text != string.Empty&& decimal.TryParse(priceTxt.Text, out d))
             {
                 var addQuery = $"INSERT INTO fuel(fuel_name,price,sup_id) VALUES ('{nameTxt.Text}'," +
                     $"{decimal.Parse(priceTxt.Text)},{decimal.Parse(id_guideTxt.Text)})";
@@ -52,7 +56,7 @@ namespace TrainingPractice_03.Forms
             var name = nameTxt.Text;
             var price = priceTxt.Text;
             var sup_id = id_guideTxt.Text;
-            if (nameTxt.Text != string.Empty && int.TryParse(priceTxt.Text, out d))
+            if (nameTxt.Text != string.Empty && decimal.TryParse(priceTxt.Text, out d))
             {
                 dataGridView1.Rows[index].SetValues(id, name,price,sup_id);
                 _dataBase.openConnection();
@@ -76,8 +80,11 @@ namespace TrainingPractice_03.Forms
             {
                 _dataBase.openConnection();
                 var id = Convert.ToInt32(dataGridView1.Rows[index].Cells[0].Value);
-                var deleteQuery = $"DELETE FROM fuel WHERE fuel_id = {id}";
+                var deleteQuery = $"DELETE FROM remains WHERE fuel_id={id}";
                 var command = new SqlCommand(deleteQuery, _dataBase.GetConnection());
+                command.ExecuteNonQuery();
+                deleteQuery = $"DELETE FROM fuel WHERE fuel_id = {id}";
+                command = new SqlCommand(deleteQuery, _dataBase.GetConnection());
                 command.ExecuteNonQuery();
                 _dataBase.closeConnection();
             }
@@ -138,7 +145,7 @@ namespace TrainingPractice_03.Forms
 
         private void more_radio_CheckedChanged(object sender, EventArgs e)
         {
-            if (int.TryParse(filter_txt.Text, out d))
+            if (decimal.TryParse(filter_txt.Text, out d))
             {
                 for(int i = 0; i < dataGridView1.Rows.Count - 1; i++)
                 {
@@ -157,7 +164,7 @@ namespace TrainingPractice_03.Forms
 
         private void less_radio_CheckedChanged(object sender, EventArgs e)
         {
-            if (int.TryParse(filter_txt.Text, out d))
+            if (decimal.TryParse(filter_txt.Text, out d))
             {
                 for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
                 {
@@ -183,6 +190,11 @@ namespace TrainingPractice_03.Forms
             filter_txt.Text = string.Empty;
             more_radio.Checked = false;
             less_radio.Checked = false;
+        }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

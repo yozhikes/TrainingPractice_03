@@ -27,6 +27,7 @@ namespace TrainingPractice_03
         private void справочникToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GuideForm guideForm=new GuideForm();
+            guideForm.FormClosed += formClosed;
             Hide();
             guideForm.Show();
         }
@@ -34,6 +35,7 @@ namespace TrainingPractice_03
         private void топливоToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FuelForm fuelForm = new FuelForm();
+            fuelForm.FormClosed += formClosed;
             Hide();
             fuelForm.Show();
         }
@@ -41,15 +43,19 @@ namespace TrainingPractice_03
         private void учётToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RemainsForm remainsForm = new RemainsForm();
+            remainsForm.FormClosed += formClosed;
             Hide();
             remainsForm.Show();
         }
 
         private void контактыToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ContactsForm contactsForm = new ContactsForm();
-            Hide();
-            contactsForm.Show();
+            MessageBox.Show("Программу сделал студент группы ИП-20-3 Мидили Никита Олегович", "Контакты",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        void formClosed(object sender, FormClosedEventArgs e)
+        {
+            Show();
         }
     }
 }
