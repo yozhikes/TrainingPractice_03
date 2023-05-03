@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.updBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.nameTxt = new System.Windows.Forms.TextBox();
@@ -44,16 +43,9 @@
             this.priceTxt = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.id_guideTxt = new System.Windows.Forms.ComboBox();
-            this.supplierdirBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bDGasStationDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bD_GasStationDataSet = new TrainingPractice_03.BD_GasStationDataSet();
-            this.supplierdirTableAdapter = new TrainingPractice_03.BD_GasStationDataSetTableAdapters.supplierdirTableAdapter();
             this.clrFilter_btn = new System.Windows.Forms.Button();
             this.backBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.supplierdirBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bDGasStationDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bD_GasStationDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // updBtn
@@ -200,33 +192,12 @@
             // 
             // id_guideTxt
             // 
-            this.id_guideTxt.DataSource = this.supplierdirBindingSource;
-            this.id_guideTxt.DisplayMember = "sup_id";
             this.id_guideTxt.FormattingEnabled = true;
             this.id_guideTxt.Location = new System.Drawing.Point(233, 411);
             this.id_guideTxt.Name = "id_guideTxt";
             this.id_guideTxt.Size = new System.Drawing.Size(231, 21);
             this.id_guideTxt.TabIndex = 27;
             this.id_guideTxt.ValueMember = "sup_id";
-            // 
-            // supplierdirBindingSource
-            // 
-            this.supplierdirBindingSource.DataMember = "supplierdir";
-            this.supplierdirBindingSource.DataSource = this.bDGasStationDataSetBindingSource;
-            // 
-            // bDGasStationDataSetBindingSource
-            // 
-            this.bDGasStationDataSetBindingSource.DataSource = this.bD_GasStationDataSet;
-            this.bDGasStationDataSetBindingSource.Position = 0;
-            // 
-            // bD_GasStationDataSet
-            // 
-            this.bD_GasStationDataSet.DataSetName = "BD_GasStationDataSet";
-            this.bD_GasStationDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // supplierdirTableAdapter
-            // 
-            this.supplierdirTableAdapter.ClearBeforeFill = true;
             // 
             // clrFilter_btn
             // 
@@ -277,9 +248,6 @@
             this.Text = "FuelForm";
             this.Load += new System.EventHandler(this.FuelForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.supplierdirBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bDGasStationDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bD_GasStationDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -302,10 +270,6 @@
         private System.Windows.Forms.TextBox priceTxt;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox id_guideTxt;
-        private System.Windows.Forms.BindingSource bDGasStationDataSetBindingSource;
-        private BD_GasStationDataSet bD_GasStationDataSet;
-        private System.Windows.Forms.BindingSource supplierdirBindingSource;
-        private BD_GasStationDataSetTableAdapters.supplierdirTableAdapter supplierdirTableAdapter;
         private System.Windows.Forms.Button clrFilter_btn;
         private System.Windows.Forms.Button backBtn;
     }

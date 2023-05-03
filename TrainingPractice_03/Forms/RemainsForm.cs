@@ -67,8 +67,16 @@ namespace TrainingPractice_03.Forms
 
         private void RemainsForm_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "bD_GasStationFuelData.fuel". При необходимости она может быть перемещена или удалена.
-            this.fuelTableAdapter.Fill(this.bD_GasStationFuelData.fuel);
+            var queryString = $"SELECT fuel_id FROM fuel";
+            var command = new SqlCommand(queryString, _dataBase.GetConnection());
+            _dataBase.openConnection();
+            SqlDataReader reader = command.ExecuteReader();
+            id_fuelTxt.Items.Clear();
+            while (reader.Read())
+            {
+                id_fuelTxt.Items.Add(reader[0].ToString());
+            }
+            reader.Close();
             CreateColumns();
             RefreshDgv();
         }

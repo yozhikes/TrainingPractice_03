@@ -28,10 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.sortBtn = new System.Windows.Forms.Button();
-            this.fuelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bD_GasStationFuelData = new TrainingPractice_03.BD_GasStationFuelData();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.updBtn = new System.Windows.Forms.Button();
@@ -50,17 +47,10 @@
             this.rb3 = new System.Windows.Forms.RadioButton();
             this.rb2 = new System.Windows.Forms.RadioButton();
             this.rb1 = new System.Windows.Forms.RadioButton();
-            this.bD_GasStationDataSet = new TrainingPractice_03.BD_GasStationDataSet();
-            this.bDGasStationDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.fuelTableAdapter = new TrainingPractice_03.BD_GasStationFuelDataTableAdapters.fuelTableAdapter();
             this.backBtn = new System.Windows.Forms.Button();
             this.id_fuelTxt = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.fuelBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bD_GasStationFuelData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bD_GasStationDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bDGasStationDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // sortBtn
@@ -73,16 +63,6 @@
             this.sortBtn.Text = "Сортировка";
             this.sortBtn.UseVisualStyleBackColor = true;
             this.sortBtn.Click += new System.EventHandler(this.sortBtn_Click);
-            // 
-            // fuelBindingSource
-            // 
-            this.fuelBindingSource.DataMember = "fuel";
-            this.fuelBindingSource.DataSource = this.bD_GasStationFuelData;
-            // 
-            // bD_GasStationFuelData
-            // 
-            this.bD_GasStationFuelData.DataSetName = "BD_GasStationFuelData";
-            this.bD_GasStationFuelData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label5
             // 
@@ -275,20 +255,6 @@
             this.rb1.Text = "коду учёта";
             this.rb1.UseVisualStyleBackColor = true;
             // 
-            // bD_GasStationDataSet
-            // 
-            this.bD_GasStationDataSet.DataSetName = "BD_GasStationDataSet";
-            this.bD_GasStationDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bDGasStationDataSetBindingSource
-            // 
-            this.bDGasStationDataSetBindingSource.DataSource = this.bD_GasStationDataSet;
-            this.bDGasStationDataSetBindingSource.Position = 0;
-            // 
-            // fuelTableAdapter
-            // 
-            this.fuelTableAdapter.ClearBeforeFill = true;
-            // 
             // backBtn
             // 
             this.backBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -302,8 +268,6 @@
             // 
             // id_fuelTxt
             // 
-            this.id_fuelTxt.DataSource = this.fuelBindingSource;
-            this.id_fuelTxt.DisplayMember = "fuel_id";
             this.id_fuelTxt.FormattingEnabled = true;
             this.id_fuelTxt.Location = new System.Drawing.Point(236, 336);
             this.id_fuelTxt.Name = "id_fuelTxt";
@@ -335,13 +299,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RemainsForm";
             this.Load += new System.EventHandler(this.RemainsForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.fuelBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bD_GasStationFuelData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bD_GasStationDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bDGasStationDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -368,11 +328,6 @@
         private System.Windows.Forms.RadioButton rb1;
         private System.Windows.Forms.RadioButton rb5;
         private System.Windows.Forms.RadioButton rb4;
-        private BD_GasStationDataSet bD_GasStationDataSet;
-        private System.Windows.Forms.BindingSource bDGasStationDataSetBindingSource;
-        private BD_GasStationFuelData bD_GasStationFuelData;
-        private System.Windows.Forms.BindingSource fuelBindingSource;
-        private BD_GasStationFuelDataTableAdapters.fuelTableAdapter fuelTableAdapter;
         private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.ComboBox id_fuelTxt;
     }

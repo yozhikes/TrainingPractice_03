@@ -92,8 +92,16 @@ namespace TrainingPractice_03.Forms
 
         private void FuelForm_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "bD_GasStationDataSet.supplierdir". При необходимости она может быть перемещена или удалена.
-            this.supplierdirTableAdapter.Fill(this.bD_GasStationDataSet.supplierdir);
+            var queryString = $"SELECT sup_id FROM supplierdir";
+            var command = new SqlCommand(queryString, _dataBase.GetConnection());
+            _dataBase.openConnection();
+            SqlDataReader reader = command.ExecuteReader();
+            id_guideTxt.Items.Clear();
+            while (reader.Read())
+            {
+                id_guideTxt.Items.Add(reader[0].ToString());
+            }
+            reader.Close();
             CreateColumns();
             RefreshDgv();
         }

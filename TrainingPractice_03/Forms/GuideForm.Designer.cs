@@ -28,11 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.supplierdirBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bD_GasStationDataSet = new TrainingPractice_03.BD_GasStationDataSet();
-            this.supplierdirTableAdapter = new TrainingPractice_03.BD_GasStationDataSetTableAdapters.supplierdirTableAdapter();
             this.add_btn = new System.Windows.Forms.Button();
             this.edit_btn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,8 +36,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.backBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.supplierdirBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bD_GasStationDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -53,20 +47,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(452, 237);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // supplierdirBindingSource
-            // 
-            this.supplierdirBindingSource.DataMember = "supplierdir";
-            this.supplierdirBindingSource.DataSource = this.bD_GasStationDataSet;
-            // 
-            // bD_GasStationDataSet
-            // 
-            this.bD_GasStationDataSet.DataSetName = "BD_GasStationDataSet";
-            this.bD_GasStationDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // supplierdirTableAdapter
-            // 
-            this.supplierdirTableAdapter.ClearBeforeFill = true;
             // 
             // add_btn
             // 
@@ -146,8 +126,6 @@
             this.Text = "GuideForm";
             this.Load += new System.EventHandler(this.GuideForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.supplierdirBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bD_GasStationDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,9 +134,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private BD_GasStationDataSet bD_GasStationDataSet;
-        private System.Windows.Forms.BindingSource supplierdirBindingSource;
-        private BD_GasStationDataSetTableAdapters.supplierdirTableAdapter supplierdirTableAdapter;
         private System.Windows.Forms.Button add_btn;
         private System.Windows.Forms.Button edit_btn;
         private System.Windows.Forms.Label label2;
