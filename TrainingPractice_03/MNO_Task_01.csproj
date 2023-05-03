@@ -58,16 +58,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BD_GasStationDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BD_GasStationDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BD_GasStationFuelData.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BD_GasStationFuelData.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DataBase.cs" />
     <Compile Include="Forms\FuelForm.cs">
       <SubType>Form</SubType>
@@ -144,28 +134,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>GasStationModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="BD_GasStationDataSet.xsc">
-      <DependentUpon>BD_GasStationDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="BD_GasStationDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BD_GasStationDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BD_GasStationDataSet.xss">
-      <DependentUpon>BD_GasStationDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="BD_GasStationFuelData.xsc">
-      <DependentUpon>BD_GasStationFuelData.xsd</DependentUpon>
-    </None>
-    <None Include="BD_GasStationFuelData.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BD_GasStationFuelData.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BD_GasStationFuelData.xss">
-      <DependentUpon>BD_GasStationFuelData.xsd</DependentUpon>
-    </None>
     <None Include="Models\GasStationModel.edmx.diagram">
       <DependentUpon>GasStationModel.edmx</DependentUpon>
     </None>
