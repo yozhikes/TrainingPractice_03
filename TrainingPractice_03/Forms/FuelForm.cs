@@ -65,6 +65,7 @@ namespace TrainingPractice_03.Forms
                 var command = new SqlCommand(changequery, _dataBase.GetConnection());
                 command.ExecuteNonQuery();
                 _dataBase.closeConnection();
+                RefreshDgv();
             }
             else
             {
@@ -87,6 +88,8 @@ namespace TrainingPractice_03.Forms
                 command = new SqlCommand(deleteQuery, _dataBase.GetConnection());
                 command.ExecuteNonQuery();
                 _dataBase.closeConnection();
+                edit_btn.Enabled = false;
+                RefreshDgv();
             }
         }
 
@@ -136,6 +139,7 @@ namespace TrainingPractice_03.Forms
                 nameTxt.Text = row.Cells[1].Value.ToString();
                 priceTxt.Text = row.Cells[2].Value.ToString();
                 id_guideTxt.Text = row.Cells[3].Value.ToString();
+                edit_btn.Enabled = true;
             }
         }
 
@@ -191,6 +195,7 @@ namespace TrainingPractice_03.Forms
 
         private void clrFilter_btn_Click(object sender, EventArgs e)
         {
+            RefreshDgv();
             for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
             {
                 dataGridView1.Rows[i].Visible = true;

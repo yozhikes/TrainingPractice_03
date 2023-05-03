@@ -150,6 +150,7 @@ namespace TrainingPractice_03.Forms
                 command.ExecuteNonQuery();
                 _dataBase.closeConnection();
             }
+            RefreshDgv();
         }
 
         private void expBtn_Click(object sender, EventArgs e)

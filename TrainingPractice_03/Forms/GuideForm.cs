@@ -119,6 +119,7 @@ namespace TrainingPractice_03.Forms
                 var command = new SqlCommand(changequery, _dataBase.GetConnection());
                 command.ExecuteNonQuery();
                 _dataBase.closeConnection();
+                RefreshDgv();
             }
             else
             {
